@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Chatbox.css";
 import assets from "../../assets/assets";
-import { AppContext } from "../../context/appContext";
+import { AppContext } from "../../context/AppContext";
 import {
   arrayUnion,
   doc,
