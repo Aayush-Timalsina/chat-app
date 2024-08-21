@@ -101,3 +101,14 @@
 .menu:hover .sub-menu{
     display: block;
 }
+.friends.border img {
+    border: 3px solid #0b212c;
+}
+.friends.border div span {
+    color: #0b212c;
+}
+@media (max-width: 900px) {
+    .ls {
+        width: 100%;
+    }
+}

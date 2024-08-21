@@ -13,6 +13,7 @@ const AppContextProvider = (props) => {
     const[ messagesId, setMessagesId] = useState(null);
     const[messages, setMessages] = useState([]);
     const[chatUser, setChatUser] = useState();
+    const [chatVisible, setChatVisible] = useState(false);
 
     const loadUserData = async (uid) => {
         try {
@@ -26,7 +27,7 @@ const AppContextProvider = (props) => {
             else {
                 navigate('/profile');
             }
-            await updateDoc(useRef,{
+            await updateDoc(userRef,{
                 lastSeen:Date.now()
             })
             setInterval(async () => {
@@ -54,7 +55,7 @@ const AppContextProvider = (props) => {
                     const userData = userSnap.data();
                     tempData.push({...item, userData})
                 }
-                setChatData(tempData.sort((a,b) => b.updateAt - a.updatedAt))
+                setChatData(tempData.sort((a,b) => b.updatedAt - a.updatedAt))
             })
             return () => {
                 unSub();
@@ -68,7 +69,8 @@ const AppContextProvider = (props) => {
         loadUserData,
         messages,setMessages,
         messagesId,setMessagesId,
-        chatUser,setChatUser
+        chatUser,setChatUser,
+        chatVisible, setChatVisible
     }
 
     return (
